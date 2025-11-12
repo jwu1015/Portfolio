@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Wu · Vision & Commerce Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="nav">
+      <div class="brand">
+        <span class="logo">JW</span>
+        <span class="brand-text">Justin Wu</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#stack">Tech Stack</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="cta" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Let's Collaborate</button>
+      <button class="menu" aria-label="Toggle navigation" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <div class="hero-content">
+      <p class="eyebrow">AI · Computer Vision · Product Engineering</p>
+      <h1>Building immersive, intelligent experiences</h1>
+      <p class="lead">I create end-to-end products that keep accessibility front-and-center—from machine vision services to full e-commerce platforms. Below is a snapshot of how I architected, implemented, and shipped three production-ready systems.</p>
+      <div class="hero-actions">
+        <a class="primary" href="#projects">Explore the builds</a>
+        <a class="ghost" href="../PROJECTS_OVERVIEW.md" target="_blank" rel="noopener">View technical deep dive</a>
+      </div>
+      <dl class="hero-metrics">
+        <div>
+          <dt>3</dt>
+          <dd>Complete products<br />designed & shipped</dd>
+        </div>
+        <div>
+          <dt>48</dt>
+          <dd>Endpoints, modules &<br />production components</dd>
+        </div>
+        <div>
+          <dt>100%</dt>
+          <dd>Documentation & testing<br />coverage completed</dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="projects">
+      <div class="section-head">
+        <p class="eyebrow">Case Studies</p>
+        <h2>Highlighted builds</h2>
+        <p class="section-subtitle">Each project was architected from the ground up—from systems design to deployment playbooks.</p>
+      </div>
+
+      <article class="project-card">
+        <div class="project-overview">
+          <div class="project-tag">Computer Vision</div>
+          <h3>Computer Vision Detection App</h3>
+          <p>A Flask + OpenCV DNN web app that transforms any webcam feed into a real-time object detection studio. It includes a mock inference mode, TTS guidance, and canvas overlays—perfect for demos and accessibility use cases.</p>
+          <ul class="project-highlights">
+            <li>Integrated MobileNet-SSD with graceful fallback when model assets are absent</li>
+            <li>Implemented 1-second frame capture loop and debounced speech synthesis</li>
+            <li>Designed responsive UI with detection analytics, latency, FPS, and demo assets</li>
+          </ul>
+          <div class="project-links">
+            <a href="../cv-app/README.md" target="_blank" rel="noopener" class="project-link">Read docs</a>
+            <a href="../cv-app/" target="_blank" rel="noopener" class="project-link">Browse source</a>
+          </div>
+        </div>
+        <dl class="project-meta">
+          <div>
+            <dt>Core stack</dt>
+            <dd>Flask · OpenCV DNN · HTML5 Canvas · Web Speech API</dd>
+          </div>
+          <div>
+            <dt>Deliverables</dt>
+            <dd>Endpoints, UI, Dockerfile, Makefile, README, mock assets</dd>
+          </div>
+          <div>
+            <dt>Role</dt>
+            <dd>Full-stack developer · UX designer</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="project-card">
+        <div class="project-overview">
+          <div class="project-tag">API & Systems</div>
+          <h3>Hope Services API</h3>
+          <p>An e-commerce and donations API that pairs JWT auth with SQLAlchemy, Marshmallow validation, Flamingo-ready Swagger docs, and background workers simulating Celery. Rate limiting, idempotency, and an automated test suite ensure production resilience.</p>
+          <ul class="project-highlights">
+            <li>Architected relational schema covering inventory, orders, donations, idempotency keys</li>
+            <li>Implemented idempotent order creation with job orchestration (receipts + inventory sync)</li>
+            <li>Shipped full pytest coverage, seed scripts, Docker image, and Makefile-driven workflows</li>
+          </ul>
+          <div class="project-links">
+            <a href="../hope-services-api/README.md" target="_blank" rel="noopener" class="project-link">Read docs</a>
+            <a href="../hope-services-api/" target="_blank" rel="noopener" class="project-link">Browse source</a>
+          </div>
+        </div>
+        <dl class="project-meta">
+          <div>
+            <dt>Core stack</dt>
+            <dd>Flask · SQLAlchemy · Marshmallow · Flasgger · Pytest</dd>
+          </div>
+          <div>
+            <dt>Deliverables</dt>
+            <dd>Auth, CRUD endpoints, background worker, rate limiting, OpenAPI docs</dd>
+          </div>
+          <div>
+            <dt>Role</dt>
+            <dd>Backend engineer · DevOps</dd>
+          </div>
+        </dl>
+      </article>
+
+      <article class="project-card">
+        <div class="project-overview">
+          <div class="project-tag">Frontend Experience</div>
+          <h3>Hope Services Frontend</h3>
+          <p>A React + Vite storefront that delivers seamless shopping, donations, and admin tooling. Zustand powers resilient state, while TanStack Query modernizes API communication for a polished customer experience.</p>
+          <ul class="project-highlights">
+            <li>Crafted responsive UX for catalog, cart, checkout, donations, and admin views</li>
+            <li>Implemented persistent cart/auth state, order idempotency key helpers, and toast feedback</li>
+            <li>Integrated Tailwind for scalable theming and Vite proxying for API dev flow</li>
+          </ul>
+          <div class="project-links">
+            <a href="../hope-services-frontend/README.md" target="_blank" rel="noopener" class="project-link">Read docs</a>
+            <a href="../hope-services-frontend/" target="_blank" rel="noopener" class="project-link">Browse source</a>
+          </div>
+        </div>
+        <dl class="project-meta">
+          <div>
+            <dt>Core stack</dt>
+            <dd>React 18 · Vite · Tailwind CSS · TanStack Query · Zustand</dd>
+          </div>
+          <div>
+            <dt>Deliverables</dt>
+            <dd>8 production pages, protected routes, state management, API client, README</dd>
+          </div>
+          <div>
+            <dt>Role</dt>
+            <dd>Frontend architect · Product designer</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="section" id="process">
+      <div class="section-head">
+        <p class="eyebrow">Build Process</p>
+        <h2>How I ship reliable systems</h2>
+        <p class="section-subtitle">From whiteboard to production handoff, I anchor every phase in collaboration, testing, and documentation.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="step">01</div>
+          <h3>Discover & design</h3>
+          <p>Align on problem statements, personas, success metrics, and technical architecture—translating market goals into executable roadmaps.</p>
+          <ul>
+            <li>Requirements workshops & journey mapping</li>
+            <li>System diagrams + API contracts</li>
+            <li>Documentation-first mindset</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="step">02</div>
+          <h3>Build & instrument</h3>
+          <p>Develop scalable services and interfaces with observability baked in—rate limits, idempotency, and job orchestration included.</p>
+          <ul>
+            <li>Iterative delivery with CI-friendly Makefiles</li>
+            <li>Component libraries & design systems</li>
+            <li>Testing harnesses (unit, integration, smoke)</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="step">03</div>
+          <h3>Validate & launch</h3>
+          <p>Run QA, usability passes, and resilience tests before handoff. Every project ships with README guides, deployment notes, and support plans.</p>
+          <ul>
+            <li>End-to-end validation with pytest & manual UAT</li>
+            <li>Performance profiling + accessibility checks</li>
+            <li>Launch playbooks and runbooks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="section-head">
+        <p class="eyebrow">Tech Stack</p>
+        <h2>Tools I trust in production</h2>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <h3>Core</h3>
+          <p>Python · Flask · Node · React · TypeScript · Vite</p>
+        </div>
+        <div class="stack-card">
+          <h3>AI & Data</h3>
+          <p>OpenCV DNN · NumPy · Marshmallow · SQLAlchemy</p>
+        </div>
+        <div class="stack-card">
+          <h3>Experience</h3>
+          <p>Tailwind CSS · HTML5 Canvas · speechSynthesis · Accessibility</p>
+        </div>
+        <div class="stack-card">
+          <h3>Ops & Quality</h3>
+          <p>Docker · Pytest · Rate limiting · Background workers · Idempotency keys</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section highlight">
+      <div class="highlight-content">
+        <h2>Documentation-first, collaboration always</h2>
+        <p>Every build ships with runbooks, READMEs, seed data, and testing instructions—so teams can pick up features and iterate quickly. My north star: make the next engineer’s life easier.</p>
+        <a class="primary" href="../PROJECTS_OVERVIEW.md" target="_blank" rel="noopener">Read the full technical brief</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <h2>Let’s build what’s next.</h2>
+      <p>Based in Los Altos · Open to remote & hybrid collaborations. Drop a note—let’s explore how we can combine AI and engineering to solve your next challenge.</p>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:justinwu@hey.com">
+          <span>Email</span>
+          <strong>justinwu@hey.com</strong>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/example" target="_blank" rel="noopener">
+          <span>LinkedIn</span>
+          <strong>/in/justinwu</strong>
+        </a>
+        <a class="contact-card" href="https://github.com/example" target="_blank" rel="noopener">
+          <span>GitHub</span>
+          <strong>@justinwu</strong>
+        </a>
+      </div>
+      <button class="to-top" onclick="document.getElementById('top').scrollIntoView({ behavior: 'smooth' })">Back to top ↑</button>
+    </div>
+    <p class="footer-note">© <script>document.write(new Date().getFullYear())</script> Justin Wu · Crafted with purpose and precision.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
