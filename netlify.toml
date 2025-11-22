@@ -1,4 +1,4 @@
 [build]
-  base = "portfolio/portfolio"   # <-- point to the real app folder
+  base = "portfolio"
   command = "if [ -f package-lock.json ]; then npm ci; else npm install; fi && npm run build"
   publish = "dist"
