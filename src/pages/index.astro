@@ -3,7 +3,11 @@ import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects'))
   .filter((p) => p.data.published !== false)
-  .sort((a, b) => a.id.localeCompare(b.id));
+  .sort((a, b) => {
+    const dateA = a.data.date ? new Date(a.data.date).getTime() : 0;
+    const dateB = b.data.date ? new Date(b.data.date).getTime() : 0;
+    return dateB - dateA; // newest first
+  });
 ---
 
 <html lang="en">
@@ -263,7 +267,7 @@ const projects = (await getCollection('projects'))
           </p>
         ) : (
           projects.map((project) => {
-            const { title, summary, cover, tags, demoUrl, codeUrl } = project.data;
+            const { title, summary, cover, tags, links } = project.data;
             return (
               <article class="card" key={project.id}>
                 {cover && <img class="cover" src={cover} alt={`Cover image for ${title}`} loading="lazy" />}
@@ -278,11 +282,11 @@ const projects = (await getCollection('projects'))
                     </div>
                   ) : null}
                   <div class="actions">
-                    {demoUrl && (
-                      <a class="button demo" href={demoUrl} target="_blank" rel="noopener">View Demo</a>
+                    {links?.demo && (
+                      <a class="button demo" href={links.demo} target="_blank" rel="noopener">View Demo</a>
                     )}
-                    {codeUrl && (
-                      <a class="button code" href={codeUrl} target="_blank" rel="noopener">View Code</a>
+                    {links?.code && (
+                      <a class="button code" href={links.code} target="_blank" rel="noopener">View Code</a>
                     )}
                   </div>
                 </div>
