@@ -1,0 +1,7 @@
+[build]
+  # Base directory is left blank since the project is at repo root
+  # If your project is in a subfolder, uncomment and set the line below:
+  # base = "portfolio"
+
+  command = "if [ -f package-lock.json ]; then npm ci; else npm install; fi && npm run build"
+  publish = "dist"
