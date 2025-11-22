@@ -26,6 +26,7 @@ if (!project) {
   throw Astro.redirect('/', 302);
 }
 
+const { Content } = await project.render();
 const { title, summary, cover, tags } = project.data;
 ---
 
